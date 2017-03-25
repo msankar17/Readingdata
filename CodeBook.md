@@ -3,8 +3,11 @@ Script for Reading/Cleansing and creating a Tidy data
 Contents
 --------
 The folder contains 
+
 		*README.md which explains about the different files used in this effort. 
+		
 		*run_analysis.R The script which would create tidy data
+		
 		*TidyData.csv The output from the file which is the tiday data
 
 Pre-Requisite:
