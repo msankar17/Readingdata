@@ -1,4 +1,4 @@
-==================================================================
+
 README
 ==================================================================
 The process for reading/cleansing and creating a tidy data from the Human Activity Recognition Using Smartphones Dataset
