@@ -32,3 +32,15 @@ Steps Involved in the script:
 	10. Create a tidy data with the average of each variable for each activity and each subject.
 	11. Write the output in a CSV file and working directory
 
+Variables used in the script:
+-----------------------------
+	data1 - The training data set is loaded 
+	data2 - The test data set is loaded 
+	data3 - Merged data set of both data1 & data2
+	names  - The variables names in the data set 
+	data4 - data set with only the mean and SD observations
+	data5 - Subject, Activity and measurements merged in this data set
+	data6 - Aggregated data set on Subject, activity on the mean & SD obervations on variables
+	actname - Names of the activities which are desscriptive
+	act1,act2,act3 - activity information from test, training and merged activity data
+	sub1,sub2,sub3 - activity information from test, training and merged subject data
