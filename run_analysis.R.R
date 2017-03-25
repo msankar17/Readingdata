@@ -6,6 +6,9 @@
 #### Appropriately labels the data set with descriptive variable names. 
 #### Create an independent tidy data set with the average of each variable for each activity and each subject
 
+library(dplyr)
+library(reshape2)
+library(tidyr)
 
 #Load the training dataset
 data1=read.table("./getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/train/X_train.txt")
@@ -57,15 +60,15 @@ names(actname)=c("activity","Activitydesc")
 act3=merge(act3,actname,by.x="Activity",by.y = "activity")
 
 #Merge the measurements with Subject & Activity information
-data5=cbind(data3,sub3,Activity=act3$Activitydesc)
+data5=cbind(sub3,Activity=act3$Activitydesc,data4)
 
 #Tidying data, melting the observations into rows
-dd=melt(data5,id=c("Subject","Activity"),measure.vars = c(1:561))
-dd1=dd %>% separate(variable,c("Domain","Type","Function","Dimension"),sep="-")
+#dd=melt(data5,id=c("Subject","Activity"),measure.vars = c(1:561))
+#dd1=dd %>% separate(variable,c("Domain","Type","Function","Dimension"),sep="-")
 
 #Activity5-creates a second, independent tidy data set with the average of each variable for each activity and each subject.
-data6=aggregate(dd1$value,by=list(Subject=dd1$Subject,Activity=dd1$Activity,variable=dd1$Function),mean)
-arrange(data6,Subject,Activity)
+data6=aggregate(data4,by=list(Subject=data5$Subject,Activity=data5$Activity),mean)
+data6=arrange(data6,Subject,Activity)
 
 #Write the output in a CSV file
 write.table(data6,file="Tidydata.txt",row.names = FALSE)
